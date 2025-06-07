@@ -1,0 +1,31 @@
+aufgaben:
+  - id: sim-1
+    beschreibung: "GenesisScript Engine 2.0 entwickeln (EntityManager, Bilanzprüfung, Emergenzlogik)"
+    status: offen
+  - id: sim-2
+    beschreibung: "Kosmische Nullbilanz als Simulationsgrundlage implementieren"
+    status: offen
+  - id: sim-3
+    beschreibung: "Drei-Pfade-Entwicklung in Programmlogik überführen"
+    status: offen
+  - id: sim-4
+    beschreibung: "CoreGPT als zentrales Steuerungsmodul für alle GPT-Teams integrieren"
+    status: offen
+  - id: sim-5
+    beschreibung: "Programmstruktur für Nullmembran, Felder, Teilchen und Evolution dokumentieren"
+    status: offen
+  - id: sim-6
+    beschreibung: "Zeitschritt-Simulation mit CR-EP-Kurven umsetzen"
+    status: offen
+  - id: sim-7
+    beschreibung: "BioGPT- und EmergenceGPT-Module für DNA- und Bewusstseinssimulation einbinden"
+    status: offen
+  - id: sim-8
+    beschreibung: "GenesisScript-Spezifikation und Python-Simulationsmodul ausarbeiten"
+    status: offen
+  - id: sim-9
+    beschreibung: "Theorien aus Relativität und Quantenmechanik konsolidieren"
+    status: offen
+  - id: sim-10
+    beschreibung: "Datenmanagement und Export für das Universumsprojekt planen"
+    status: offen
