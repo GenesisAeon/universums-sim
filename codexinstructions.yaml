@@ -5,3 +5,5 @@ workflow_steps:
   - "Fehlt diese Datei, alle offenen TODOs sammeln und als neue docs/sigils/todo-sigil.yaml anlegen"
   - "Hinweise im Ordner repositorypflege beachten"
   - "Während eines Commits möglichst viele TODOs abarbeiten und dokumentieren"
+  - "Programm und alle Funktionen laufen lassen und testen, Fehler beheben"
+  - "Aus Repo-Kontext und conversations.json neue ToDos ableiten und in ToDo.yaml eintragen"
