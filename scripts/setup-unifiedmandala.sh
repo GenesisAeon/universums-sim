@@ -1,6 +1,17 @@
 #!/bin/sh
 # Setup script for UnifiedMandala environment
-# Currently installs dependencies and prepares local environment
+# Installs basic dependencies and prepares local environment
+
+set -e
 
 echo "Setting up UnifiedMandala..."
-# Placeholder for future setup steps
+
+# Install Node and Python dependencies if package lists exist
+if [ -f package.json ]; then
+  npm install
+fi
+if [ -f requirements.txt ]; then
+  pip install -r requirements.txt
+fi
+
+echo "Setup complete"

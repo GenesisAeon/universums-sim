@@ -31,10 +31,16 @@ aufgaben:
     status: erledigt
   - id: sim-11
     beschreibung: "Skript zur Aufteilung von docs/sigils/conversations.json in kleinere Fragmente erstellen"
-    status: offen
+    status: erledigt
   - id: sim-12
     beschreibung: "Unit-Tests für packages/genesis_script schreiben"
-    status: offen
+    status: erledigt
   - id: sim-13
     beschreibung: "setup-unifiedmandala.sh um Installation benötigter Abhängigkeiten erweitern"
-    status: offen
+    status: erledigt
+  - id: sim-14
+    beschreibung: "Filter-Skript für conversations.json entwickeln"
+    status: erledigt
+  - id: sim-15
+    beschreibung: "Markierungs-Skript für verarbeitete Fragmente erstellen"
+    status: erledigt

@@ -6,8 +6,8 @@ beschreibung: |
   Vor allem `docs/sigils/conversations.json` (ca. 45 MB) wird schrittweise
   verarbeitet. Verwende die Skripte `split-conversations.js` und
   `filter-conversations.js`, um Teilstücke zu erzeugen. Verarbeitete Fragmente
-  werden in `docs/sigils/conversations-progress.json` protokolliert über
-  `mark-fragment.js`.
+  werden im Ordner `docs/sigils/fragments/` abgelegt und in
+  `docs/sigils/conversations-progress.json` über `mark-fragment.js` protokolliert.
 files:
   - path: docs/sigils/conversations.json
     size: 45MB
