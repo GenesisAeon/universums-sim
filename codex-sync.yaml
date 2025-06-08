@@ -1,0 +1,4 @@
+# Zeitgesteuerte Synchronisation
+interval: weekly
+jobs:
+  - sync-docs

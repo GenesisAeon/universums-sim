@@ -13,7 +13,7 @@ aufgaben:
     status: offen
   - id: sim-5
     beschreibung: "Programmstruktur für Nullmembran, Felder, Teilchen und Evolution dokumentieren"
-    status: offen
+    status: erledigt
   - id: sim-6
     beschreibung: "Zeitschritt-Simulation mit CR-EP-Kurven umsetzen"
     status: offen
@@ -22,10 +22,10 @@ aufgaben:
     status: offen
   - id: sim-8
     beschreibung: "GenesisScript-Spezifikation und Python-Simulationsmodul ausarbeiten"
-    status: offen
+    status: erledigt
   - id: sim-9
     beschreibung: "Theorien aus Relativität und Quantenmechanik konsolidieren"
-    status: offen
+    status: erledigt
   - id: sim-10
     beschreibung: "Datenmanagement und Export für das Universumsprojekt planen"
-    status: offen
+    status: erledigt
