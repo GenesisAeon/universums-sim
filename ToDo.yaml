@@ -29,3 +29,12 @@ aufgaben:
   - id: sim-10
     beschreibung: "Datenmanagement und Export für das Universumsprojekt planen"
     status: erledigt
+  - id: sim-11
+    beschreibung: "Skript zur Aufteilung von docs/sigils/conversations.json in kleinere Fragmente erstellen"
+    status: offen
+  - id: sim-12
+    beschreibung: "Unit-Tests für packages/genesis_script schreiben"
+    status: offen
+  - id: sim-13
+    beschreibung: "setup-unifiedmandala.sh um Installation benötigter Abhängigkeiten erweitern"
+    status: offen
