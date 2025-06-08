@@ -433,3 +433,12 @@ aufgaben:
   - id: task-143
     beschreibung: "BioGPT- und EmergenceGPT-Module für DNA- und Bewusstseinssimulation einbinden"
     status: offen
+  - id: task-144
+    beschreibung: "split-conversations.js implementieren"
+    status: erledigt
+  - id: task-145
+    beschreibung: "filter-conversations.js implementieren"
+    status: erledigt
+  - id: task-146
+    beschreibung: "mark-fragment.js implementieren"
+    status: erledigt
