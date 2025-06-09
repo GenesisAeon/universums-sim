@@ -22,8 +22,10 @@ sigillin_memory: |
 note: |
   Automated agents must read this YAML before modifying repository content to
   maintain consistent handling of the conversation memory and Sigillin files.
+
 reminder: |
   Beachte bei allem repositorypflege/repository_map.yaml als GenesisAeongesamtstruktur.
   Folge codexinstructions.yaml.
   Beachte, dass docs/sigils/conversations.json aktualisiert wurde.
   Erarbeite und Implementiere Testverfahren falls nicht vorhanden.
+  Sortiere die Punkte aus codexworkinstructions.yaml und codexinstructions.yaml in die für dich logisch sinnvollste Reihenfolge, erarbeite gegebenfalls neue Punkte und füge sie logisch ein.
