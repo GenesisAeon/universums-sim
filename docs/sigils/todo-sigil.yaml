@@ -451,3 +451,6 @@ aufgaben:
   - id: task-149
     beschreibung: "Engine.step Logik implementieren"
     status: erledigt
+  - id: task-150
+    beschreibung: "Erarbeite und Implementiere Testverfahren falls nicht vorhanden"
+    status: offen

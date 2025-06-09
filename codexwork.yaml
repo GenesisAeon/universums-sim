@@ -26,3 +26,4 @@ reminder: |
   Beachte bei allem repositorypflege/repository_map.yaml als GenesisAeongesamtstruktur.
   Folge codexinstructions.yaml.
   Beachte, dass docs/sigils/conversations.json aktualisiert wurde.
+  Erarbeite und Implementiere Testverfahren falls nicht vorhanden.
