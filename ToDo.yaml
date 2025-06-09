@@ -44,3 +44,9 @@ aufgaben:
   - id: sim-15
     beschreibung: "Markierungs-Skript für verarbeitete Fragmente erstellen"
     status: erledigt
+  - id: sim-16
+    beschreibung: "codex_sync_manifest.yaml erstellen"
+    status: offen
+  - id: sim-17
+    beschreibung: "Engine.step Logik implementieren"
+    status: erledigt

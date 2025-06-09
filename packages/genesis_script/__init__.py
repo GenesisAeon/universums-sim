@@ -3,7 +3,12 @@
 class Engine:
     def __init__(self):
         self.entities = []
+        self.tick = 0
 
     def step(self):
         """Führt einen Simulationsschritt aus."""
-        pass
+        self.tick += 1
+        for entity in self.entities:
+            update = getattr(entity, "update", None)
+            if callable(update):
+                update(self)

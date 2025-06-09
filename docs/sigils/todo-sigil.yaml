@@ -445,3 +445,9 @@ aufgaben:
   - id: task-147
     beschreibung: "README im UnifiedMandala-Stil überarbeiten"
     status: erledigt
+  - id: task-148
+    beschreibung: "`codex_sync_manifest.yaml` anlegen"
+    status: offen
+  - id: task-149
+    beschreibung: "Engine.step Logik implementieren"
+    status: erledigt
