@@ -442,3 +442,6 @@ aufgaben:
   - id: task-146
     beschreibung: "mark-fragment.js implementieren"
     status: erledigt
+  - id: task-147
+    beschreibung: "README im UnifiedMandala-Stil überarbeiten"
+    status: erledigt
