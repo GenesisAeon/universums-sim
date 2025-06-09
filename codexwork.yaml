@@ -28,4 +28,5 @@ reminder: |
   Folge codexinstructions.yaml.
   Beachte, dass docs/sigils/conversations.json aktualisiert wurde.
   Erarbeite und Implementiere Testverfahren falls nicht vorhanden.
-  Sortiere die Punkte aus codexworkinstructions.yaml und codexinstructions.yaml in die für dich logisch sinnvollste Reihenfolge, erarbeite gegebenfalls neue Punkte und füge sie logisch ein.
+    Sortiere die Punkte aus codexworkinstructions.yaml und codexinstructions.yaml in die für dich logisch sinnvollste Reihenfolge, erarbeite gegebenfalls neue Punkte und füge sie logisch ein.
+    Erarbeite dir hifreiches Kontextverständniss für das Repo und das GenesisAeon-Gesamtprojekt aus docs/sigils/conversations.json, schreibe es in kontext.json und refferenziere es Logisch gestaffelt in kontext.yaml!
