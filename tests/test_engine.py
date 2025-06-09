@@ -5,4 +5,19 @@ from packages.genesis_script import Engine
 
 def test_step_runs():
     eng = Engine()
-    assert eng.step() is None
+    assert eng.tick == 0
+    eng.step()
+    assert eng.tick == 1
+
+class DummyEntity:
+    def __init__(self):
+        self.updated = False
+    def update(self, engine):
+        self.updated = True
+
+def test_entity_update_called():
+    eng = Engine()
+    ent = DummyEntity()
+    eng.entities.append(ent)
+    eng.step()
+    assert ent.updated
