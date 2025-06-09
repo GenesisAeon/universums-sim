@@ -454,3 +454,6 @@ aufgaben:
   - id: task-150
     beschreibung: "Erarbeite und Implementiere Testverfahren falls nicht vorhanden"
     status: offen
+  - id: task-151
+    beschreibung: "Live CREP Timeline Visualization implementieren"
+    status: offen
