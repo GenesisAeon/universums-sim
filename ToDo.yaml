@@ -50,3 +50,6 @@ aufgaben:
   - id: sim-17
     beschreibung: "Engine.step Logik implementieren"
     status: erledigt
+  - id: sim-18
+    beschreibung: "Erarbeite und implementiere Testverfahren falls nicht vorhanden"
+    status: offen
