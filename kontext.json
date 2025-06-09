@@ -1,0 +1,15 @@
+{
+  "project": "GenesisAeon",
+  "repository": "universum-simulationen",
+  "summary": {
+    "total_conversations": 232,
+    "topic_counts": {
+      "other": 119,
+      "genesisos": 19,
+      "unifiedmandala": 8,
+      "nukleon_scanner": 48,
+      "sigillin": 14,
+      "aeonshell": 24
+    }
+  }
+}

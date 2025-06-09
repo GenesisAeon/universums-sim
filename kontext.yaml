@@ -1,0 +1,15 @@
+# GenesisAeon Kontextuebersicht
+projekt: GenesisAeon
+repository: universum-simulationen
+konversationen:
+  gesamt: 232
+  themen:
+    genesisos: 19
+    unifiedmandala: 8
+    nukleon_scanner: 48
+    sigillin: 14
+    aeonshell: 24
+    sonstige: 119
+referenzen:
+  - kontext.json
+  - docs/sigils/conversations.json
