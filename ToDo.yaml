@@ -56,3 +56,6 @@ aufgaben:
   - id: sim-19
     beschreibung: "Live CREP Timeline Visualization implementieren"
     status: offen
+  - id: sim-20
+    beschreibung: "codex-sync.sh Skript implementieren"
+    status: offen

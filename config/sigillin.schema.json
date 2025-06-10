@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Sigillin",
+  "type": "object",
+  "required": ["sigillin"],
+  "properties": {
+    "sigillin": {
+      "type": "object",
+      "required": ["id", "title", "created_by", "timestamp"],
+      "properties": {
+        "id": {"type": "string"},
+        "title": {"type": "string"},
+        "created_by": {"type": "string"},
+        "timestamp": {"type": "string", "format": "date-time"},
+        "tags": {"type": "array", "items": {"type": "string"}},
+        "activation_phrase": {"type": "string"},
+        "type": {"type": "string"},
+        "content": {"type": "object"},
+        "trace": {"type": "object"},
+        "links": {"type": "array", "items": {"type": "string"}},
+        "next_crystals": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

@@ -36,6 +36,7 @@ pytest
 ## 💠 CLI-Rituale
 - `./scripts/setup-unifiedmandala.sh` – richtet die Umgebung ein
 - `pytest` – führt die Test-Suite aus
+- `./scripts/sigillin_validator.py <file>` – prüft Sigillin-Dateien
 
 ## 🛡 Lizenz
 [![MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
