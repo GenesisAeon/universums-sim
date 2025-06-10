@@ -59,3 +59,9 @@ aufgaben:
   - id: sim-20
     beschreibung: "codex-sync.sh Skript implementieren"
     status: offen
+  - id: sim-21
+    beschreibung: ".git/sendemail-validate Hook um einfache Checks erweitern"
+    status: erledigt
+  - id: sim-22
+    beschreibung: "Verwaltung der conversations-Fragmente verbessern"
+    status: offen

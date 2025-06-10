@@ -457,3 +457,9 @@ aufgaben:
   - id: task-151
     beschreibung: "Live CREP Timeline Visualization implementieren"
     status: offen
+  - id: task-152
+    beschreibung: ".git/sendemail-validate Hook mit Basistests (TODO-Marker-Prüfung, pytest)"
+    status: erledigt
+  - id: task-153
+    beschreibung: "Conversations-Fragmentverwaltung im Ordner docs/sigils/fragments optimieren"
+    status: offen
