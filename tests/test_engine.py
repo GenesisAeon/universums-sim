@@ -18,6 +18,12 @@ class DummyEntity:
 def test_entity_update_called():
     eng = Engine()
     ent = DummyEntity()
-    eng.entities.append(ent)
+    eng.add_entity(ent)
     eng.step()
     assert ent.updated
+
+def test_add_entity():
+    eng = Engine()
+    ent = DummyEntity()
+    eng.add_entity(ent)
+    assert ent in eng.entities

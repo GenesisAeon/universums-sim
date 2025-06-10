@@ -46,13 +46,13 @@ aufgaben:
     status: erledigt
   - id: sim-16
     beschreibung: "codex_sync_manifest.yaml erstellen"
-    status: offen
+    status: erledigt
   - id: sim-17
     beschreibung: "Engine.step Logik implementieren"
     status: erledigt
   - id: sim-18
     beschreibung: "Erarbeite und implementiere Testverfahren falls nicht vorhanden"
-    status: offen
+    status: erledigt
   - id: sim-19
     beschreibung: "Live CREP Timeline Visualization implementieren"
     status: offen
