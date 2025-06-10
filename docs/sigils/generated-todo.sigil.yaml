@@ -1,0 +1,37 @@
+todos:
+  - file: codexinstructions.yaml
+    line: 5
+    text: "- \"Nach unimplementierten Aufgaben oder TODO-Kommentaren suchen und in docs/sigils/todo-sigil.yaml ergänzen\""
+  - file: codexinstructions.yaml
+    line: 6
+    text: "- \"Fehlt diese Datei, alle offenen TODOs sammeln und als neue docs/sigils/todo-sigil.yaml anlegen\""
+  - file: codexinstructions.yaml
+    line: 8
+    text: "- \"Während eines Commits möglichst viele TODOs abarbeiten und dokumentieren\""
+  - file: docs/mastercanvas.yaml
+    line: 34
+    text: "* [ ] Noch nicht alle in Map & UI integriert (→ Phase 1 TODO)"
+  - file: scripts/generate-todo-sigil.js
+    line: 18
+    text: "if (line.includes('TODO')) {"
+  - file: scripts/hooks/sendemail-validate.sh
+    line: 22
+    text: "# Replace the TODO placeholders with appropriate checks according to your"
+  - file: scripts/hooks/sendemail-validate.sh
+    line: 27
+    text: "# basic check: avoid leaving TODO markers in cover letters"
+  - file: scripts/hooks/sendemail-validate.sh
+    line: 28
+    text: "if grep -q \"TODO\" \"$file\"; then"
+  - file: scripts/hooks/sendemail-validate.sh
+    line: 29
+    text: "echo \"Cover letter contains TODO markers\" >&2"
+  - file: scripts/hooks/sendemail-validate.sh
+    line: 40
+    text: "# reject patches that still contain TODO markers"
+  - file: scripts/hooks/sendemail-validate.sh
+    line: 41
+    text: "if grep -q \"TODO\" \"$file\"; then"
+  - file: scripts/hooks/sendemail-validate.sh
+    line: 42
+    text: "echo \"Patch contains TODO markers\" >&2"

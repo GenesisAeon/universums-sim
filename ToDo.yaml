@@ -58,7 +58,7 @@ aufgaben:
     status: offen
   - id: sim-20
     beschreibung: "codex-sync.sh Skript implementieren"
-    status: offen
+    status: erledigt
   - id: sim-21
     beschreibung: ".git/sendemail-validate Hook um einfache Checks erweitern"
     status: erledigt
