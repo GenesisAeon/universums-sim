@@ -447,13 +447,13 @@ aufgaben:
     status: erledigt
   - id: task-148
     beschreibung: "`codex_sync_manifest.yaml` anlegen"
-    status: offen
+    status: erledigt
   - id: task-149
     beschreibung: "Engine.step Logik implementieren"
     status: erledigt
   - id: task-150
     beschreibung: "Erarbeite und Implementiere Testverfahren falls nicht vorhanden"
-    status: offen
+    status: erledigt
   - id: task-151
     beschreibung: "Live CREP Timeline Visualization implementieren"
     status: offen

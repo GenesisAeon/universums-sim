@@ -1,0 +1,11 @@
+version: "1.0"
+beschreibung: Manifest für Codex-Synchronisation
+jobs:
+  - id: docs
+    quelle: docs/
+    ziel: aeon-resoecho/docs
+    kommentar: Dokumentation mit CREP-Timeline abgleichen
+  - id: genesis_script
+    quelle: packages/genesis_script/
+    ziel: unified-mandala/packages/genesis_script
+    kommentar: Basismodul synchron halten
