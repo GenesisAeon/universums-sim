@@ -110,3 +110,12 @@ aufgaben:
   - id: sim-37
     beschreibung: "Mandala-Interface für symbolische Gerätezustände entwerfen"
     status: offen
+  - id: sim-38
+    beschreibung: "Module greekmath-core.ts, phimath-core.ts und pimath-core.ts implementieren"
+    status: offen
+  - id: sim-39
+    beschreibung: "Module binmath-core.ts und faktormath-core.ts erstellen"
+    status: offen
+  - id: sim-40
+    beschreibung: "depthvalue-core.ts zur Faktorisierung irrationaler Werte entwickeln"
+    status: offen

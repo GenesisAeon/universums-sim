@@ -493,3 +493,12 @@ aufgaben:
   - id: task-163
     beschreibung: "Mandala-Interface für symbolische Gerätezustände entwerfen"
     status: offen
+  - id: task-164
+    beschreibung: "greekmath-core.ts, phimath-core.ts und pimath-core.ts implementieren"
+    status: offen
+  - id: task-165
+    beschreibung: "binmath-core.ts und faktormath-core.ts erstellen"
+    status: offen
+  - id: task-166
+    beschreibung: "depthvalue-core.ts zur Faktorisierung irrationaler Werte entwickeln"
+    status: offen
