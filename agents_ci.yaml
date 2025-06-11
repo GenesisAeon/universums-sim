@@ -1,0 +1,20 @@
+name: Agents SelfAudit
+
+on:
+  push:
+    paths:
+      - 'Agents.md'
+      - 'runDryAgent.ts'
+
+jobs:
+  selfaudit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run DryAgent Test
+        run: ts-node runDryAgent.ts
