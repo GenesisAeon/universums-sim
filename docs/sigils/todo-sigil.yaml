@@ -472,3 +472,24 @@ aufgaben:
   - id: task-156
     beschreibung: "Mandala-Baum laden, Projektkern öffnen und GenesisMemory verbinden"
     status: offen
+  - id: task-157
+    beschreibung: "crep-flow-synchronizer.ts implementieren"
+    status: offen
+  - id: task-158
+    beschreibung: "sigillin_bridge_engine.ts entwickeln"
+    status: offen
+  - id: task-159
+    beschreibung: "emergence_signal_hub.ts anlegen"
+    status: offen
+  - id: task-160
+    beschreibung: "Codex-Modul GenesisOS ↔ KernelGPT ↔ DriverBuilder vorbereiten"
+    status: offen
+  - id: task-161
+    beschreibung: "PoC: USB-Tastatur als Sigillin-Device einbinden"
+    status: offen
+  - id: task-162
+    beschreibung: "GPT-Monitor für dmesg/udevadm zur Treibergenerierung"
+    status: offen
+  - id: task-163
+    beschreibung: "Mandala-Interface für symbolische Gerätezustände entwerfen"
+    status: offen

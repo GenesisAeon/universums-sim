@@ -89,3 +89,24 @@ aufgaben:
   - id: sim-30
     beschreibung: "Script zum Export von agents_chain.mmd nach agents_chain.svg anlegen"
     status: offen
+  - id: sim-31
+    beschreibung: "crep-flow-synchronizer.ts implementieren"
+    status: offen
+  - id: sim-32
+    beschreibung: "sigillin_bridge_engine.ts entwickeln"
+    status: offen
+  - id: sim-33
+    beschreibung: "emergence_signal_hub.ts anlegen"
+    status: offen
+  - id: sim-34
+    beschreibung: "Codex-Modul GenesisOS ↔ KernelGPT ↔ DriverBuilder vorbereiten"
+    status: offen
+  - id: sim-35
+    beschreibung: "PoC: USB-Tastatur als Sigillin-Device einbinden"
+    status: offen
+  - id: sim-36
+    beschreibung: "GPT-Monitor für dmesg/udevadm zur Treibergenerierung"
+    status: offen
+  - id: sim-37
+    beschreibung: "Mandala-Interface für symbolische Gerätezustände entwerfen"
+    status: offen

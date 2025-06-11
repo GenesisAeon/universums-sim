@@ -2,13 +2,16 @@
 projekt: GenesisAeon
 repository: universum-simulationen
 konversationen:
-  gesamt: 232
+  gesamt: 233
   themen:
     genesisos: 19
     unifiedmandala: 8
     nukleon_scanner: 48
     sigillin: 14
     aeonshell: 24
+    repoanalyse_agenten: 1
+    resonanzsynchronisation: 1
+    resonanzmodule_entwicklung: 1
     sonstige: 119
 referenzen:
   - kontext.json

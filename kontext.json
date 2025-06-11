@@ -2,14 +2,17 @@
   "project": "GenesisAeon",
   "repository": "universum-simulationen",
   "summary": {
-    "total_conversations": 232,
+    "total_conversations": 233,
     "topic_counts": {
       "other": 119,
       "genesisos": 19,
       "unifiedmandala": 8,
       "nukleon_scanner": 48,
       "sigillin": 14,
-      "aeonshell": 24
+      "aeonshell": 24,
+      "repoanalyse_agenten": 1,
+      "resonanzsynchronisation": 1,
+      "resonanzmodule_entwicklung": 1
     }
   }
 }
