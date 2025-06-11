@@ -463,3 +463,12 @@ aufgaben:
   - id: task-153
     beschreibung: "Conversations-Fragmentverwaltung im Ordner docs/sigils/fragments optimieren"
     status: offen
+  - id: task-154
+    beschreibung: "Agents.md v1.1 vervollständigen und Diagramm exportieren"
+    status: offen
+  - id: task-155
+    beschreibung: "Python-Skript reflexscanner.gpt aus Resonanzmodule-Chat realisieren"
+    status: offen
+  - id: task-156
+    beschreibung: "Mandala-Baum laden, Projektkern öffnen und GenesisMemory verbinden"
+    status: offen

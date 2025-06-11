@@ -65,3 +65,12 @@ aufgaben:
   - id: sim-22
     beschreibung: "Verwaltung der conversations-Fragmente verbessern"
     status: offen
+  - id: sim-23
+    beschreibung: "Agents.md v1.1 prüfen und fehlende Elemente wie agents_chain.svg erzeugen"
+    status: offen
+  - id: sim-24
+    beschreibung: "Python-Modul reflexscanner.gpt aus GenesisOS Resonanzmodule Entwicklung implementieren"
+    status: offen
+  - id: sim-25
+    beschreibung: "Resonanzsynchronisation Schritte Mandala-Baum laden, Projektkern öffnen und GenesisMemory verbinden umsetzen"
+    status: offen
