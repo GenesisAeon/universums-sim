@@ -74,3 +74,18 @@ aufgaben:
   - id: sim-25
     beschreibung: "Resonanzsynchronisation Schritte Mandala-Baum laden, Projektkern öffnen und GenesisMemory verbinden umsetzen"
     status: offen
+  - id: sim-26
+    beschreibung: "conversations_parser.ts implementieren um Fragmentdaten aufzubereiten"
+    status: offen
+  - id: sim-27
+    beschreibung: "generate-todo-from-convos.ts entwickeln und ToDos aus Gesprächen ableiten"
+    status: offen
+  - id: sim-28
+    beschreibung: "codex-memory-kernel.ts erstellen für persistente Codex-Synchronisation"
+    status: offen
+  - id: sim-29
+    beschreibung: "symbolic-context-injector.ts entwerfen zur Kontexteinbindung"
+    status: offen
+  - id: sim-30
+    beschreibung: "Script zum Export von agents_chain.mmd nach agents_chain.svg anlegen"
+    status: offen
