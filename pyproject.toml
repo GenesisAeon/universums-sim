@@ -1,0 +1,196 @@
+[build-system]
+requires = ["hatchling>=1.21.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "universums-sim"
+version = "0.1.0"
+description = "Complete cosmic emergence simulation with self-reflective observation and live visualization for GenesisAeon"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.11"
+authors = [
+  { name = "GenesisAeon", email = "genesis@universums-sim.dev" },
+]
+keywords = [
+  "cosmology",
+  "simulation",
+  "emergence",
+  "quantum",
+  "lagrangian",
+  "visualization",
+  "genesis",
+  "mandala",
+  "entropy",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Physics",
+  "Topic :: Scientific/Engineering :: Visualization",
+  "Typing :: Typed",
+]
+dependencies = [
+  "numpy>=1.26.0",
+  "scipy>=1.12.0",
+  "typer>=0.12.0",
+  "rich>=13.7.0",
+  "pydantic>=2.6.0",
+  "structlog>=24.1.0",
+]
+
+[project.optional-dependencies]
+full-stack = [
+  "genesis-os>=0.2.0",
+  "aeon-ai>=0.2.0",
+  "cosmic-web>=0.1.0",
+  "fieldtheory>=0.1.0",
+  "mirror-machine>=0.1.0",
+  "advanced-weighting-systems>=0.1.0",
+  "sigillin>=0.1.0",
+  "entropy-governance>=0.1.0",
+  "utac-core>=0.1.0",
+  "mandala-visualizer>=0.1.0",
+  "sonification>=0.1.0",
+  "climate-dashboard>=0.1.0",
+  "implosive-genesis>=0.1.0",
+  "entropy-table>=0.1.0",
+]
+gui = [
+  "dash>=2.16.0",
+  "plotly>=5.20.0",
+  "matplotlib>=3.8.0",
+  "pillow>=10.2.0",
+]
+sonify = [
+  "sounddevice>=0.4.6",
+  "soundfile>=0.12.1",
+]
+dev = [
+  "pytest>=8.1.0",
+  "pytest-cov>=5.0.0",
+  "pytest-asyncio>=0.23.0",
+  "pytest-mock>=3.14.0",
+  "pytest-xdist>=3.5.0",
+  "pytest-benchmark>=4.0.0",
+  "mypy>=1.9.0",
+  "ruff>=0.4.0",
+  "mkdocs>=1.5.3",
+  "mkdocs-material>=9.5.0",
+  "mkdocstrings[python]>=0.24.0",
+  "mkdocs-autorefs>=1.0.0",
+  "hypothesis>=6.100.0",
+  "factory-boy>=3.3.0",
+  "freezegun>=1.4.0",
+]
+all = [
+  "universums-sim[full-stack,gui,sonify,dev]",
+]
+
+[project.scripts]
+universums-sim = "universums_sim.cli.main:app"
+
+[project.urls]
+Homepage = "https://github.com/GenesisAeon/universums-sim"
+Documentation = "https://genesisaeon.github.io/universums-sim"
+Repository = "https://github.com/GenesisAeon/universums-sim"
+"Bug Tracker" = "https://github.com/GenesisAeon/universums-sim/issues"
+Zenodo = "https://doi.org/10.5281/zenodo.PLACEHOLDER"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/universums_sim"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/src",
+  "/tests",
+  "/docs",
+  "pyproject.toml",
+  "README.md",
+  "LICENSE",
+  ".zenodo.json",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+  "E", "W", "F", "I", "N", "UP", "ANN", "S", "B", "A", "C4",
+  "DTZ", "ISC", "PIE", "PT", "RET", "SIM", "TCH", "ARG", "ERA",
+]
+ignore = [
+  "ANN101", "ANN102", "ANN401", "S101", "S311",
+  "ERA001",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["ANN", "S", "ARG"]
+"src/universums_sim/cli/main.py" = ["ANN"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_any_generics = true
+check_untyped_defs = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+show_error_codes = true
+namespace_packages = true
+explicit_package_bases = true
+
+[[tool.mypy.overrides]]
+module = [
+  "scipy.*",
+  "sounddevice.*",
+  "soundfile.*",
+  "dash.*",
+  "plotly.*",
+  "matplotlib.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = [
+  "--strict-markers",
+  "--tb=short",
+  "-v",
+  "--cov=universums_sim",
+  "--cov-report=term-missing",
+  "--cov-report=xml",
+  "--cov-fail-under=99",
+]
+markers = [
+  "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+  "gui: marks tests requiring GUI dependencies",
+  "sonify: marks tests requiring audio dependencies",
+  "integration: marks integration tests",
+  "contract: marks contract tests with external packages",
+  "e2e: marks end-to-end tests",
+]
+asyncio_mode = "auto"
+
+[tool.coverage.run]
+source = ["universums_sim"]
+branch = true
+omit = ["tests/*", "*/migrations/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "pragma: no cover",
+  "def __repr__",
+  "if TYPE_CHECKING:",
+  "raise NotImplementedError",
+  "if __name__ == .__main__.:",
+]
