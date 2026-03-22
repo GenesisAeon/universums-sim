@@ -1,0 +1,56 @@
+site_name: universums-sim
+site_description: Complete cosmic emergence simulation for GenesisAeon
+site_url: https://genesisaeon.github.io/universums-sim
+repo_url: https://github.com/GenesisAeon/universums-sim
+repo_name: GenesisAeon/universums-sim
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: deep purple
+      accent: cyan
+  features:
+    - navigation.tabs
+    - navigation.instant
+    - content.code.copy
+    - content.tabs.link
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: true
+            show_root_heading: true
+            heading_level: 2
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - attr_list
+  - def_list
+  - tables
+
+extra_javascript:
+  - javascripts/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+
+extra_css:
+  - https://unpkg.com/katex@0/dist/katex.min.css
+
+strict: true
+
+nav:
+  - Home: index.md
+  - API Reference: reference.md
+  - CLI: cli.md
+  - Changelog: changelog.md
