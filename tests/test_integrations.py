@@ -14,10 +14,7 @@ from __future__ import annotations
 import sys
 from unittest.mock import MagicMock, patch
 
-import pytest
-
-from universums_sim.integrations.registry import IntegrationRegistry, _OPTIONAL_PACKAGES
-
+from universums_sim.integrations.registry import _OPTIONAL_PACKAGES, IntegrationRegistry
 
 # ---------------------------------------------------------------------------
 # Registry basic tests (30 tests)

@@ -20,9 +20,8 @@ from __future__ import annotations
 
 import json
 import sys
-from enum import Enum
+from enum import StrEnum
 from pathlib import Path
-from typing import Optional
 
 import typer
 from rich.console import Console
@@ -41,7 +40,7 @@ app = typer.Typer(
 console = Console()
 
 
-class ExportFormat(str, Enum):
+class ExportFormat(StrEnum):
     """Supported export formats."""
 
     json = "json"
@@ -62,10 +61,10 @@ def run(
     dt: float = typer.Option(0.01, "--dt", help="Integration time-step."),
     alpha: float = typer.Option(0.42, "--alpha", help="Emergence coupling constant."),
     seed: int = typer.Option(42, "--seed", help="Random seed for reproducibility."),
-    visualize: bool = typer.Option(False, "--visualize", "-V", help="Enable live mandala rendering."),
+    visualize: bool = typer.Option(False, "--visualize", "-V", help="Enable live mandala."),
     sonify: bool = typer.Option(False, "--sonify", help="Enable sonification of emergence events."),
     gui: bool = typer.Option(False, "--gui", help="Launch Dash GUI dashboard."),
-    output: Optional[Path] = typer.Option(None, "--output", "-o", help="Save moments to JSON file."),
+    output: Path | None = typer.Option(None, "--output", "-o", help="Save moments to JSON file."),
     verbose: bool = typer.Option(False, "--verbose", "-v", help="Verbose structured logging."),
 ) -> None:
     """Run a cosmic emergence simulation and stream results."""
@@ -160,7 +159,7 @@ def run(
 def replay(
     input_file: Path = typer.Argument(..., help="Path to a JSON moments file."),
     speed: float = typer.Option(1.0, "--speed", help="Replay speed multiplier."),
-    visualize: bool = typer.Option(False, "--visualize", "-V", help="Enable live rendering."),
+    _visualize: bool = typer.Option(False, "--visualize", "-V", help="Enable live rendering."),
 ) -> None:
     """Replay a previously saved simulation log."""
     if not input_file.exists():
@@ -188,7 +187,7 @@ def verbose_mode() -> bool:
 @app.command()
 def export(
     input_file: Path = typer.Argument(..., help="Path to a JSON moments file."),
-    output_file: Optional[Path] = typer.Option(None, "--output", "-o"),
+    output_file: Path | None = typer.Option(None, "--output", "-o"),
     fmt: ExportFormat = typer.Option(ExportFormat.json, "--format", "-f"),
 ) -> None:
     """Export simulation data to JSON, CSV, or HDF5."""
@@ -203,7 +202,10 @@ def export(
         dest.write_text(json.dumps(raw, indent=2))
     elif fmt == ExportFormat.csv:
         import csv  # noqa: PLC0415
-        keys = ["step", "time", "entropy", "emergence_rate", "hamiltonian", "phase", "collapse_state"]
+        keys = [
+            "step", "time", "entropy", "emergence_rate",
+            "hamiltonian", "phase", "collapse_state",
+        ]
         with dest.open("w", newline="") as fh:
             writer = csv.DictWriter(fh, fieldnames=keys, extrasaction="ignore")
             writer.writeheader()
@@ -213,11 +215,11 @@ def export(
             import h5py  # type: ignore[import-untyped]  # noqa: PLC0415  # pragma: no cover
             import numpy as np  # noqa: PLC0415  # pragma: no cover
             with h5py.File(dest, "w") as hf:  # pragma: no cover
-                for key in ["step", "time", "entropy", "emergence_rate", "hamiltonian"]:  # pragma: no cover
+                for key in ["step", "time", "entropy", "emergence_rate", "hamiltonian"]:  # pragma: no cover  # noqa: E501
                     hf.create_dataset(key, data=np.array([r[key] for r in raw]))  # pragma: no cover
-        except ImportError:  # pragma: no cover
-            console.print("[red]h5py not installed. Run: pip install h5py[/red]")  # pragma: no cover
-            raise typer.Exit(1)  # pragma: no cover
+        except ImportError as err:  # pragma: no cover
+            console.print("[red]h5py not installed. Run: pip install h5py[/red]")  # pragma: no cover  # noqa: E501
+            raise typer.Exit(1) from err  # pragma: no cover
 
     console.print(f"[green]Exported to {dest}[/green]")
 

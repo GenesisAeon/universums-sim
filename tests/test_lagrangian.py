@@ -23,7 +23,6 @@ from universums_sim.simulation.lagrangian import (
     UnifiedLagrangian,
 )
 
-
 # ---------------------------------------------------------------------------
 # LagrangianConfig tests (20 tests)
 # ---------------------------------------------------------------------------
@@ -267,7 +266,8 @@ class TestScalarPotential:
         assert np.isfinite(v)
 
     def test_scalar_zero_kappa_zeroed(self, positions4):
-        lag = UnifiedLagrangian(LagrangianConfig(kappa=0.0, lambda_scalar=0.01, mu_squared=0.0, xi=0.0))
+        cfg = LagrangianConfig(kappa=0.0, lambda_scalar=0.01, mu_squared=0.0, xi=0.0)
+        lag = UnifiedLagrangian(cfg)
         v = lag.scalar_potential(positions4, entropy=1.0)
         assert np.isfinite(v)
 
@@ -335,7 +335,8 @@ class TestHamiltonianCompute:
         h0 = lag.compute(positions4, vel_zero, masses4, 1.0)
         h1 = lag.compute(positions4, vel_nonzero, masses4, 1.0)
         # Kinetic energy is non-negative, so h1 >= h0 (approximately)
-        assert np.isfinite(h0) and np.isfinite(h1)
+        assert np.isfinite(h0)
+        assert np.isfinite(h1)
 
     def test_hamiltonian_consistent_components(self, positions4, velocities4, masses4):
         lag = UnifiedLagrangian()

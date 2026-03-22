@@ -20,7 +20,6 @@ from universums_sim.simulation.emergence import (
     EmergenceType,
 )
 
-
 # ---------------------------------------------------------------------------
 # EmergenceType (5 tests)
 # ---------------------------------------------------------------------------
@@ -50,16 +49,16 @@ class TestEmergenceType:
 
 class TestEmergenceEvent:
     def _make_event(self, **kwargs):
-        defaults = dict(
-            event_id="evt-00000001",
-            step=1,
-            time=0.5,
-            entropy=10.0,
-            rate=0.01,
-            kind=EmergenceType.MESO,
-            description="test event",
-            metadata={},
-        )
+        defaults: dict = {
+            "event_id": "evt-00000001",
+            "step": 1,
+            "time": 0.5,
+            "entropy": 10.0,
+            "rate": 0.01,
+            "kind": EmergenceType.MESO,
+            "description": "test event",
+            "metadata": {},
+        }
         defaults.update(kwargs)
         return EmergenceEvent(**defaults)
 
@@ -106,7 +105,9 @@ class TestEmergenceEvent:
     def test_to_dict_keys(self):
         e = self._make_event()
         d = e.to_dict()
-        assert set(d.keys()) >= {"event_id", "step", "time", "entropy", "rate", "kind", "description"}
+        assert set(d.keys()) >= {
+            "event_id", "step", "time", "entropy", "rate", "kind", "description"
+        }
 
     def test_to_dict_kind_name(self):
         e = self._make_event(kind=EmergenceType.COSMIC)
@@ -231,7 +232,8 @@ class TestComputeRate:
         r_peak = eng.compute_rate(entropy=50.0, grad_h=0.0)
         r_low = eng.compute_rate(entropy=10.0, grad_h=0.0)
         r_high = eng.compute_rate(entropy=90.0, grad_h=0.0)
-        assert r_peak >= r_low and r_peak >= r_high
+        assert r_peak >= r_low
+        assert r_peak >= r_high
 
     def test_rate_zero_alpha(self):
         rng = np.random.default_rng(0)

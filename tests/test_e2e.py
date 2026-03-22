@@ -8,18 +8,16 @@ CLI smoke-test, and multi-step property checks.
 from __future__ import annotations
 
 import json
-import time
 
 import numpy as np
 import pytest
 
 from universums_sim import UniverseSimulator, __version__
+from universums_sim.governance.entropy import EntropyGovernor, GovernancePolicy
+from universums_sim.integrations.registry import IntegrationRegistry
 from universums_sim.simulation.core import SimulationConfig, SimulationPhase
 from universums_sim.simulation.emergence import EmergenceType
 from universums_sim.simulation.lagrangian import CollapseState
-from universums_sim.governance.entropy import EntropyGovernor, GovernancePolicy
-from universums_sim.integrations.registry import IntegrationRegistry
-
 
 # ---------------------------------------------------------------------------
 # Package metadata (5 tests)
@@ -44,7 +42,6 @@ class TestPackageMetadata:
             assert hasattr(us, name)
 
     def test_py_typed_marker(self):
-        import importlib.resources
         # Just check that the module is importable with type annotations
         import universums_sim
         assert universums_sim.__version__ == "0.1.0"
@@ -93,7 +90,7 @@ class TestE2ESimulation:
 
     def test_times_monotone(self, sim):
         times = [m.time for m in sim.run(10)]
-        assert all(t2 > t1 for t1, t2 in zip(times, times[1:]))
+        assert all(t2 > t1 for t1, t2 in zip(times, times[1:], strict=False))
 
     def test_events_all_tuples(self, sim):
         for m in sim.run(20):
@@ -109,7 +106,7 @@ class TestE2ESimulation:
 
     def test_wall_times_increasing_approx(self, sim):
         moments = list(sim.run(5))
-        for m1, m2 in zip(moments, moments[1:]):
+        for m1, m2 in zip(moments, moments[1:], strict=False):
             assert m2.wall_time >= m1.wall_time
 
     def test_different_seeds_different_trajectories(self):
@@ -236,6 +233,7 @@ class TestE2ESimulation:
 class TestCLI:
     def test_cli_info(self):
         from typer.testing import CliRunner
+
         from universums_sim.cli.main import app
         runner = CliRunner()
         result = runner.invoke(app, ["info"])
@@ -244,6 +242,7 @@ class TestCLI:
 
     def test_cli_run_default(self):
         from typer.testing import CliRunner
+
         from universums_sim.cli.main import app
         runner = CliRunner()
         result = runner.invoke(app, ["run", "--steps", "3", "--particles", "4"])
@@ -251,6 +250,7 @@ class TestCLI:
 
     def test_cli_run_with_seed(self):
         from typer.testing import CliRunner
+
         from universums_sim.cli.main import app
         runner = CliRunner()
         result = runner.invoke(app, ["run", "--steps", "5", "--particles", "4", "--seed", "7"])
@@ -258,6 +258,7 @@ class TestCLI:
 
     def test_cli_run_with_entropy(self):
         from typer.testing import CliRunner
+
         from universums_sim.cli.main import app
         runner = CliRunner()
         result = runner.invoke(app, ["run", "--steps", "3", "--particles", "4", "--entropy", "2.0"])
@@ -265,6 +266,7 @@ class TestCLI:
 
     def test_cli_run_output_file(self, tmp_path):
         from typer.testing import CliRunner
+
         from universums_sim.cli.main import app
         runner = CliRunner()
         out = tmp_path / "out.json"
@@ -276,6 +278,7 @@ class TestCLI:
 
     def test_cli_run_output_valid_json(self, tmp_path):
         from typer.testing import CliRunner
+
         from universums_sim.cli.main import app
         runner = CliRunner()
         out = tmp_path / "out.json"
@@ -286,29 +289,36 @@ class TestCLI:
 
     def test_cli_export_json(self, tmp_path):
         from typer.testing import CliRunner
+
         from universums_sim.cli.main import app
         runner = CliRunner()
         # First create an input file
         out = tmp_path / "sim.json"
         runner.invoke(app, ["run", "--steps", "3", "--particles", "4", "--output", str(out)])
         export_out = tmp_path / "export.json"
-        result = runner.invoke(app, ["export", str(out), "--output", str(export_out), "--format", "json"])
+        result = runner.invoke(
+            app, ["export", str(out), "--output", str(export_out), "--format", "json"]
+        )
         assert result.exit_code == 0
         assert export_out.exists()
 
     def test_cli_export_csv(self, tmp_path):
         from typer.testing import CliRunner
+
         from universums_sim.cli.main import app
         runner = CliRunner()
         out = tmp_path / "sim.json"
         runner.invoke(app, ["run", "--steps", "3", "--particles", "4", "--output", str(out)])
         csv_out = tmp_path / "export.csv"
-        result = runner.invoke(app, ["export", str(out), "--output", str(csv_out), "--format", "csv"])
+        result = runner.invoke(
+            app, ["export", str(out), "--output", str(csv_out), "--format", "csv"]
+        )
         assert result.exit_code == 0
         assert csv_out.exists()
 
     def test_cli_replay_nonexistent_file(self, tmp_path):
         from typer.testing import CliRunner
+
         from universums_sim.cli.main import app
         runner = CliRunner()
         result = runner.invoke(app, ["replay", str(tmp_path / "nonexistent.json")])
@@ -316,6 +326,7 @@ class TestCLI:
 
     def test_cli_run_verbose(self):
         from typer.testing import CliRunner
+
         from universums_sim.cli.main import app
         runner = CliRunner()
         result = runner.invoke(app, ["run", "--steps", "2", "--particles", "4", "--verbose"])
@@ -323,6 +334,7 @@ class TestCLI:
 
     def test_cli_replay_existing_file(self, tmp_path):
         from typer.testing import CliRunner
+
         from universums_sim.cli.main import app
         runner = CliRunner()
         out = tmp_path / "sim.json"
@@ -333,6 +345,7 @@ class TestCLI:
 
     def test_cli_export_nonexistent_file(self, tmp_path):
         from typer.testing import CliRunner
+
         from universums_sim.cli.main import app
         runner = CliRunner()
         result = runner.invoke(app, ["export", str(tmp_path / "nope.json")])
@@ -341,6 +354,7 @@ class TestCLI:
     def test_cli_verbose_mode_function(self):
         import sys
         from unittest.mock import patch
+
         from universums_sim.cli.main import verbose_mode
         with patch.object(sys, "argv", ["prog", "--verbose"]):
             assert verbose_mode() is True
@@ -351,7 +365,9 @@ class TestCLI:
         """Test replay with verbose_mode active to cover line 174."""
         import sys
         from unittest.mock import patch
+
         from typer.testing import CliRunner
+
         from universums_sim.cli.main import app
         runner = CliRunner()
         out = tmp_path / "sim.json"
@@ -362,6 +378,7 @@ class TestCLI:
 
     def test_cli_info_contains_doi(self):
         from typer.testing import CliRunner
+
         from universums_sim.cli.main import app
         runner = CliRunner()
         result = runner.invoke(app, ["info"])

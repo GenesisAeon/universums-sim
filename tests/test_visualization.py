@@ -323,7 +323,6 @@ class TestSonificationEngine:
         s.process(m)
 
     def test_process_with_sounddevice_mocked(self):
-        import universums_sim.simulation.emergence as em
         from universums_sim.simulation.emergence import EmergenceEvent
         evt = EmergenceEvent(
             event_id="e1", step=0, time=0.0, entropy=1.0, rate=0.5,
@@ -366,7 +365,7 @@ class TestSonificationEngine:
         s = SonificationEngine()
         rates = [0.0, 0.1, 0.5, 1.0, 2.0, 3.0]
         freqs = [s._freq_from_rate(r) for r in rates]
-        for f1, f2 in zip(freqs, freqs[1:]):
+        for f1, f2 in zip(freqs, freqs[1:], strict=False):
             assert f2 >= f1
 
     def test_process_empty_events_enabled(self):

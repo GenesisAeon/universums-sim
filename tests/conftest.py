@@ -5,11 +5,10 @@ from __future__ import annotations
 import numpy as np
 import pytest
 
+from universums_sim.governance.entropy import EntropyGovernor, GovernancePolicy
 from universums_sim.simulation.core import SimulationConfig, UniverseSimulator
 from universums_sim.simulation.emergence import EmergenceEngine
-from universums_sim.simulation.lagrangian import LagrangianConfig, UnifiedLagrangian
-from universums_sim.governance.entropy import EntropyGovernor, GovernancePolicy
-
+from universums_sim.simulation.lagrangian import UnifiedLagrangian
 
 # ---------------------------------------------------------------------------
 # Config fixtures

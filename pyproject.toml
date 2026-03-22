@@ -126,13 +126,16 @@ select = [
   "DTZ", "ISC", "PIE", "PT", "RET", "SIM", "TCH", "ARG", "ERA",
 ]
 ignore = [
-  "ANN101", "ANN102", "ANN401", "S101", "S311",
-  "ERA001",
+  "ANN401", "S101", "S311", "ERA001",
+  "B008",   # typer.Option/Argument in function defaults is the Typer pattern
+  "TC002", "TC003",  # moving numpy imports to TYPE_CHECKING is overly strict here
 ]
 
 [tool.ruff.lint.per-file-ignores]
-"tests/**/*.py" = ["ANN", "S", "ARG"]
+"tests/**/*.py" = ["ANN", "S", "ARG", "B017", "PT011"]
 "src/universums_sim/cli/main.py" = ["ANN"]
+"tests/test_engine.py" = ["I001", "E402"]
+"tests/test_sigillin_validator.py" = ["I001", "E402", "F401"]
 
 [tool.mypy]
 python_version = "3.11"

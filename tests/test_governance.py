@@ -20,7 +20,6 @@ from universums_sim.governance.entropy import (
     PolicyAction,
 )
 
-
 # ---------------------------------------------------------------------------
 # PolicyAction (5 tests)
 # ---------------------------------------------------------------------------
@@ -139,12 +138,12 @@ class TestGovernancePolicy:
 
 class TestGovernanceDecision:
     def _make_decision(self, **kwargs):
-        defaults = dict(
-            action=PolicyAction.ALLOW,
-            entropy=50.0,
-            reason="test",
-            metadata={},
-        )
+        defaults: dict = {
+            "action": PolicyAction.ALLOW,
+            "entropy": 50.0,
+            "reason": "test",
+            "metadata": {},
+        }
         defaults.update(kwargs)
         return GovernanceDecision(**defaults)
 

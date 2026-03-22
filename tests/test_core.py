@@ -29,7 +29,6 @@ from universums_sim.simulation.core import (
 from universums_sim.simulation.emergence import EmergenceEvent, EmergenceType
 from universums_sim.simulation.lagrangian import CollapseState
 
-
 # ---------------------------------------------------------------------------
 # SimulationConfig (30 tests)
 # ---------------------------------------------------------------------------
@@ -194,19 +193,19 @@ class TestSimulationPhase:
 # ---------------------------------------------------------------------------
 
 def _make_moment(**kwargs) -> CosmicMoment:
-    defaults = dict(
-        step=0,
-        time=0.0,
-        entropy=1.0,
-        emergence_rate=0.01,
-        hamiltonian=-5.0,
-        phase=SimulationPhase.GENESIS,
-        events=(),
-        collapse_state=CollapseState.STABLE,
-        observer_hash="test-hash",
-        wall_time=time.time(),
-        metadata={},
-    )
+    defaults: dict = {
+        "step": 0,
+        "time": 0.0,
+        "entropy": 1.0,
+        "emergence_rate": 0.01,
+        "hamiltonian": -5.0,
+        "phase": SimulationPhase.GENESIS,
+        "events": (),
+        "collapse_state": CollapseState.STABLE,
+        "observer_hash": "test-hash",
+        "wall_time": time.time(),
+        "metadata": {},
+    }
     defaults.update(kwargs)
     return CosmicMoment(**defaults)
 
@@ -452,12 +451,10 @@ class TestUniverseSimulatorTick:
 
     def test_tick_entropy_changes(self, default_config):
         sim = UniverseSimulator(default_config)
-        initial = sim.entropy
         for _ in range(5):
             sim.tick()
         # entropy can evolve (up or down depending on dynamics)
         assert np.isfinite(sim.entropy)
-        assert sim.entropy != initial or True  # it might stay same if rate=0
 
     def test_tick_positions_change(self, default_config):
         sim = UniverseSimulator(default_config)
@@ -487,7 +484,7 @@ class TestUniverseSimulatorRun:
     def test_run_time_increases(self, default_config):
         sim = UniverseSimulator(default_config)
         times = [m.time for m in sim.run(5)]
-        assert all(t2 > t1 for t1, t2 in zip(times, times[1:]))
+        assert all(t2 > t1 for t1, t2 in zip(times, times[1:], strict=False))
 
     def test_run_zero_steps_raises(self, small_sim):
         with pytest.raises(ValueError):

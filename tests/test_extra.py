@@ -14,6 +14,12 @@ import time
 import numpy as np
 import pytest
 
+from universums_sim.governance.entropy import (
+    EntropyGovernor,
+    GovernancePolicy,
+    PolicyAction,
+)
+from universums_sim.integrations.registry import IntegrationRegistry
 from universums_sim.simulation.core import (
     CosmicMoment,
     SimulationConfig,
@@ -27,22 +33,8 @@ from universums_sim.simulation.emergence import (
 )
 from universums_sim.simulation.lagrangian import (
     CollapseState,
-    LagrangianConfig,
     UnifiedLagrangian,
 )
-from universums_sim.governance.entropy import (
-    EntropyGovernor,
-    GovernancePolicy,
-    PolicyAction,
-)
-from universums_sim.integrations.registry import IntegrationRegistry
-from universums_sim.visualization.live import (
-    DashDashboard,
-    Emergence3D,
-    MandalaRenderer,
-    SonificationEngine,
-)
-
 
 # ---------------------------------------------------------------------------
 # Numerical stability (30 tests)
@@ -114,7 +106,8 @@ class TestNumericalStability:
         rng = np.random.default_rng(0)
         eng = EmergenceEngine(alpha=0.5, beta=0.001, entropy_max=1e4, rng=rng)
         r = eng.compute_rate(100.0, 1e10)
-        assert r >= 0.0 and np.isfinite(r)
+        assert r >= 0.0
+        assert np.isfinite(r)
 
     def test_simulator_small_dt(self):
         cfg = SimulationConfig(n_particles=4, seed=0, dt=1e-6)
@@ -674,7 +667,8 @@ class TestGovernanceExtra:
         g = EntropyGovernor()
         d = g.evaluate(50.0)
         dd = d.to_dict()
-        assert "action" in dd and "entropy" in dd
+        assert "action" in dd
+        assert "entropy" in dd
 
     def test_governance_weight_ethical_max(self):
         p = GovernancePolicy(weight_ethical=10.0, entropy_warn=1000.0)
@@ -718,7 +712,9 @@ class TestRegistryExtra:
 
     def test_status_dict_length(self):
         reg = IntegrationRegistry()
-        assert len(reg.status_dict()) == len(reg.available_packages()) + len(reg.unavailable_packages())
+        n_avail = len(reg.available_packages())
+        n_unavail = len(reg.unavailable_packages())
+        assert len(reg.status_dict()) == n_avail + n_unavail
 
     def test_get_module_cached_consistent(self):
         reg = IntegrationRegistry()

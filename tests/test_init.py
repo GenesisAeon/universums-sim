@@ -6,8 +6,6 @@ Covers __init__.py exports, version, author, DOI, and import stability.
 
 from __future__ import annotations
 
-import pytest
-
 
 class TestPackageInit:
     def test_version_importable(self):
@@ -74,13 +72,13 @@ class TestPackageInit:
 
     def test_simulation_init_exports(self):
         from universums_sim.simulation import (
+            CollapseState,
             CosmicMoment,
             EmergenceEngine,
             EmergenceEvent,
             SimulationConfig,
             UnifiedLagrangian,
             UniverseSimulator,
-            CollapseState,
         )
         assert all(x is not None for x in [
             CosmicMoment, EmergenceEngine, EmergenceEvent,

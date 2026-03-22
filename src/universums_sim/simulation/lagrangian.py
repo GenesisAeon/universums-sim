@@ -37,14 +37,11 @@ References
 from __future__ import annotations
 
 from enum import Enum, auto
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import numpy as np
 from numpy.typing import NDArray
 from pydantic import BaseModel, Field
-
-if TYPE_CHECKING:
-    pass
 
 # Physical constants (Planck units: G = hbar = c = k_B = 1)
 _G: float = 1.0
@@ -384,7 +381,7 @@ class UnifiedLagrangian:
         positions: NDArray[np.float64],
         velocities: NDArray[np.float64],
         masses: NDArray[np.float64],
-        entropy: float,
+        _entropy: float,
     ) -> CollapseState:
         """
         Virial-theorem collapse detector.

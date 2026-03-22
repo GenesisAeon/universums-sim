@@ -220,7 +220,12 @@ class DashDashboard:
         """Construct the Dash application layout."""
         try:
             import dash  # type: ignore[import-untyped]  # pragma: no cover
-            from dash import Input, Output, dcc, html  # type: ignore[import-untyped]  # pragma: no cover
+            from dash import (  # type: ignore[import-untyped]  # pragma: no cover
+                Input,
+                Output,
+                dcc,
+                html,
+            )
         except ImportError:
             return None
 

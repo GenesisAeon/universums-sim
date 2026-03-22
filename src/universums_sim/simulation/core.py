@@ -176,7 +176,7 @@ class SimulationConfig(BaseModel):
         return v
 
     @model_validator(mode="after")
-    def _ensure_observer_id(self) -> "SimulationConfig":
+    def _ensure_observer_id(self) -> SimulationConfig:
         if not self.observer_id:
             object.__setattr__(self, "observer_id", str(uuid.uuid4()))
         return self
