@@ -212,7 +212,7 @@ def export(
             writer.writerows(raw)
     elif fmt == ExportFormat.hdf5:  # pragma: no cover
         try:  # pragma: no cover
-            import h5py  # type: ignore[import-untyped]  # noqa: PLC0415  # pragma: no cover
+            import h5py  # noqa: PLC0415  # pragma: no cover
             import numpy as np  # noqa: PLC0415  # pragma: no cover
             with h5py.File(dest, "w") as hf:  # pragma: no cover
                 for key in ["step", "time", "entropy", "emergence_rate", "hamiltonian"]:  # pragma: no cover  # noqa: E501

@@ -16,6 +16,7 @@ module degrades gracefully when optional dependencies are absent.
 from __future__ import annotations
 
 import math
+import re
 import threading
 from typing import TYPE_CHECKING, Any
 
@@ -45,7 +46,7 @@ class MandalaRenderer:
         self._n_petals = n_petals
         self._size = size
         self._frame: int = 0
-        self._history: list[np.ndarray] = []  # type: ignore[type-arg]
+        self._history: list[np.ndarray[Any, Any]] = []
 
     def render(self, moment: CosmicMoment) -> dict[str, Any]:
         """
@@ -114,7 +115,7 @@ class Emergence3D:
     def __init__(self) -> None:
         self._frames: list[dict[str, Any]] = []
 
-    def update(self, moment: CosmicMoment, positions: np.ndarray) -> dict[str, Any]:  # type: ignore[type-arg]
+    def update(self, moment: CosmicMoment, positions: np.ndarray[Any, Any]) -> dict[str, Any]:
         """
         Build a Plotly-compatible trace dict for particle positions.
 
@@ -178,7 +179,7 @@ class SonificationEngine:
 
     def _freq_from_rate(self, rate: float) -> float:
         """Map emergence rate to a musical frequency (Hz) via log scaling."""
-        return 220.0 * (2.0 ** (rate * 3.0))  # max ~1760 Hz
+        return float(220.0 * (2.0 ** (rate * 3.0)))  # max ~1760 Hz
 
     def process(self, moment: CosmicMoment) -> None:
         """
@@ -190,7 +191,7 @@ class SonificationEngine:
         """
         if not self._enabled or not moment.events:
             return
-        import sounddevice as sd  # type: ignore[import-untyped]
+        import sounddevice as sd  # noqa: PLC0415
 
         for event in moment.events:
             freq = self._freq_from_rate(event.rate)
@@ -219,8 +220,8 @@ class DashDashboard:
     def _build_app(self) -> Any:
         """Construct the Dash application layout."""
         try:
-            import dash  # type: ignore[import-untyped]  # pragma: no cover
-            from dash import (  # type: ignore[import-untyped]  # pragma: no cover
+            import dash  # pragma: no cover
+            from dash import (  # pragma: no cover
                 Input,
                 Output,
                 dcc,
@@ -237,7 +238,7 @@ class DashDashboard:
             dcc.Interval(id="interval", interval=500, n_intervals=0),
         ], style={"backgroundColor": "#0a0a1a", "color": "white"})
 
-        @app.callback(  # pragma: no cover
+        @app.callback(  # type: ignore[untyped-decorator]  # pragma: no cover
             Output("entropy-graph", "figure"),
             Output("emergence-graph", "figure"),
             Input("interval", "n_intervals"),
@@ -327,7 +328,7 @@ class LiveVisualizer:
 
     def save_svg_animation(self, path: str) -> None:
         """
-        Save all SVG frames as an SMIL animation.
+        Save all SVG frames as a single SMIL-animated SVG document.
 
         Parameters
         ----------
@@ -336,6 +337,35 @@ class LiveVisualizer:
         """
         if not self._svgs:
             return
-        combined = "\n<!-- frame separator -->\n".join(self._svgs)
+        if len(self._svgs) == 1:
+            with open(path, "w") as f:  # noqa: PTH123
+                f.write(self._svgs[0])
+            return
+        # Extract dimensions from the first frame
+        w_match = re.search(r'width="(\d+)"', self._svgs[0])
+        h_match = re.search(r'height="(\d+)"', self._svgs[0])
+        width = w_match.group(1) if w_match else "512"
+        height = h_match.group(1) if h_match else "512"
+        frame_dur = 0.1  # seconds per frame
+        groups: list[str] = []
+        for i, svg in enumerate(self._svgs):
+            inner = re.sub(r"^<svg[^>]*>\n?", "", svg)
+            inner = re.sub(r"\n?</svg>$", "", inner)
+            begin = f"{i * frame_dur:.3f}s"
+            end = f"{(i + 1) * frame_dur:.3f}s"
+            groups.append(
+                f'<g visibility="hidden">\n'
+                f'  <set attributeName="visibility" to="visible"'
+                f' begin="{begin}" end="{end}" fill="remove"/>\n'
+                f"{inner}\n"
+                f"</g>"
+            )
+        body = "\n".join(groups)
+        result = (
+            f'<svg xmlns="http://www.w3.org/2000/svg" '
+            f'width="{width}" height="{height}" style="background:#0a0a1a">\n'
+            f"{body}\n"
+            f"</svg>"
+        )
         with open(path, "w") as f:  # noqa: PTH123
-            f.write(combined)
+            f.write(result)

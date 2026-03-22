@@ -104,6 +104,11 @@ class UnifiedLagrangian:
             # Accept SimulationConfig-like objects gracefully
             self._lcfg = LagrangianConfig()
 
+    @property
+    def softening(self) -> float:
+        """Gravitational softening length used by this Lagrangian."""
+        return self._lcfg.softening
+
     # ------------------------------------------------------------------
     # Kinetic energy
     # ------------------------------------------------------------------

@@ -557,4 +557,6 @@ class TestLiveVisualizer:
         path = str(tmp_path / "multi.svg")
         v.save_svg_animation(path)
         content = Path(path).read_text()
-        assert content.count("<svg") == 3
+        # All frames merged into one root <svg> with per-frame <g> groups
+        assert content.count("<svg") == 1
+        assert content.count("<g ") == 3

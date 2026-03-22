@@ -290,7 +290,7 @@ class UniverseSimulator:
         """Compute pairwise gravitational + field accelerations (O(N^2))."""
         acc = np.zeros_like(self._positions)
         n = self._cfg.n_particles
-        softening = 0.01  # Planck lengths
+        softening = self._lagrangian.softening
         for i in range(n):
             diff = self._positions - self._positions[i]  # (N,3)
             r2 = np.sum(diff**2, axis=1) + softening**2
