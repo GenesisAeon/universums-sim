@@ -1,5 +1,8 @@
 # universums-sim
 
+**DOI**: [10.5281/zenodo.19161241](https://doi.org/10.5281/zenodo.19161241)
+**Zenodo**: [https://zenodo.org/records/19161241](https://zenodo.org/records/19161241)
+
 Complete cosmic emergence simulation with self-reflective observation
 and live visualization for GenesisAeon.
 

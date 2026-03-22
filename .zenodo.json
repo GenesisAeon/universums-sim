@@ -1,36 +1,15 @@
 {
-  "title": "universums-sim: Complete Cosmic Emergence Simulation for GenesisAeon",
-  "description": "universums-sim provides a complete PyPI package for cosmic emergence simulation with self-reflective observation and live visualization. Includes an extended Unified Lagrangian for N-body + field-theory dynamics, a symplectic leapfrog integrator, emergence event engine, entropy governance, live mandala visualization, 3D particle rendering, sonification, and a Dash GUI.",
+  "title": "GenesisAeon/universums-sim: v0.1.0 – Full cosmic emergence simulation with Unified Lagrangian, live Mandala + Dash GUI",
+  "version": "0.1.0",
+  "doi": "10.5281/zenodo.19161241",
   "creators": [
     {
-      "name": "GenesisAeon",
-      "affiliation": "GenesisAeon Research",
-      "orcid": ""
+      "name": "GenesisAeon Project"
     }
   ],
+  "description": "Complete discrete cosmic emergence simulator: UniverseSimulator with symplectic integration, Unified Lagrangian L = T + V_grav + V_scalar + V_entropy + V_topo, real-time EmergenceEngine, EntropyGovernor and live MandalaRenderer + Dash GUI for the GenesisAeon stack.",
+  "keywords": ["UniversumsSim", "cosmic-emergence", "Unified-Lagrangian", "CosmicMoment", "EmergenceEngine", "Dash-GUI", "GenesisAeon"],
   "license": "MIT",
-  "version": "0.1.0",
   "upload_type": "software",
-  "access_right": "open",
-  "keywords": [
-    "cosmology",
-    "simulation",
-    "emergence",
-    "quantum field theory",
-    "lagrangian mechanics",
-    "entropy",
-    "visualization",
-    "mandala",
-    "python",
-    "GenesisAeon"
-  ],
-  "related_identifiers": [
-    {
-      "identifier": "https://github.com/GenesisAeon/universums-sim",
-      "relation": "isSupplementTo",
-      "scheme": "url"
-    }
-  ],
-  "language": "eng",
-  "notes": "Built with the diamond-setup --template genesis pattern. Integrates genesis-os, aeon-ai, cosmic-web, fieldtheory, mirror-machine, advanced-weighting-systems, sigillin, entropy-governance, utac-core, mandala-visualizer, sonification, climate-dashboard, implosive-genesis, and entropy-table as optional [full-stack] dependencies."
+  "access_right": "open"
 }
