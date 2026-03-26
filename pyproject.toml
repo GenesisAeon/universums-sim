@@ -1,10 +1,10 @@
-[build-system]
+﻿[build-system]
 requires = ["hatchling>=1.21.0"]
 build-backend = "hatchling.build"
 
 [project]
 name = "universums-sim"
-version = "0.1.0"
+version = "0.3.1"
 description = "Complete cosmic emergence simulation with self-reflective observation and live visualization for GenesisAeon"
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -199,3 +199,4 @@ exclude_lines = [
   "raise NotImplementedError",
   "if __name__ == .__main__.:",
 ]
+
