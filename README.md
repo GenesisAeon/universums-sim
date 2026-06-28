@@ -8,7 +8,8 @@
   <a href="https://pypi.org/project/universums-sim/"><img src="https://img.shields.io/pypi/v/universums-sim.svg" alt="PyPI"></a>
   <a href="https://pypi.org/project/universums-sim/"><img src="https://img.shields.io/pypi/pyversions/universums-sim.svg" alt="Python"></a>
   <a href="https://doi.org/10.5281/zenodo.19161241"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.19161241.svg" alt="DOI"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License"></a>
+  <a href="LICENSE-CODE"><img src="https://img.shields.io/badge/Code-GPLv3--or--later-blue.svg" alt="Code License"></a>
+  <a href="LICENSE-DOCS"><img src="https://img.shields.io/badge/Docs-CC%20BY%204.0-lightgrey.svg" alt="Docs License"></a>
   <a href="https://github.com/GenesisAeon/universums-sim/actions"><img src="https://github.com/GenesisAeon/universums-sim/workflows/CI/badge.svg" alt="CI"></a>
 </p>
 
@@ -221,4 +222,13 @@ mkdocs serve
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+This project is dual-licensed:
+
+- **Code** (`src/`, `packages/`, `apps/`, `scripts/`, `tests/`, configs)
+  is licensed under the **GNU General Public License v3.0 or later
+  (GPL-3.0-or-later)** — see [LICENSE-CODE](LICENSE-CODE).
+- **Documentation** (`docs/`, this README, handbook/narrative `*.md`
+  files) is licensed under **Creative Commons Attribution 4.0
+  International (CC BY 4.0)** — see [LICENSE-DOCS](LICENSE-DOCS).
+
+See [LICENSE](LICENSE) for the full dual-license overview.

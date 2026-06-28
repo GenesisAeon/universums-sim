@@ -4,10 +4,11 @@ build-backend = "hatchling.build"
 
 [project]
 name = "universums-sim"
-version = "0.3.1"
+version = "1.0.0"
 description = "Complete cosmic emergence simulation with self-reflective observation and live visualization for GenesisAeon"
 readme = "README.md"
-license = { file = "LICENSE" }
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE", "LICENSE-CODE", "LICENSE-DOCS"]
 requires-python = ">=3.11"
 authors = [
   { name = "GenesisAeon", email = "genesis@universums-sim.dev" },
@@ -26,7 +27,6 @@ keywords = [
 classifiers = [
   "Development Status :: 4 - Beta",
   "Intended Audience :: Science/Research",
-  "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
@@ -45,20 +45,20 @@ dependencies = [
 
 [project.optional-dependencies]
 full-stack = [
-  "genesis-os>=0.2.0",
-  "aeon-ai>=0.2.0",
-  "cosmic-web>=0.1.0",
-  "fieldtheory>=0.1.0",
-  "mirror-machine>=0.1.0",
-  "advanced-weighting-systems>=0.1.0",
-  "sigillin>=0.1.0",
-  "entropy-governance>=0.1.0",
-  "utac-core>=0.1.0",
-  "mandala-visualizer>=0.1.0",
-  "sonification>=0.1.0",
-  "climate-dashboard>=0.1.0",
-  "implosive-genesis>=0.1.0",
-  "entropy-table>=0.1.0",
+  "genesis-os>=1.0.0",
+  "aeon-ai>=1.0.0",
+  "cosmic-web>=1.0.0",
+  "fieldtheory>=1.0.0",
+  "mirror-machine>=1.0.0",
+  "advanced-weighting-systems>=1.0.0",
+  "sigillin>=1.0.0",
+  "entropy-governance>=1.0.0",
+  "utac-core>=1.0.0",
+  "mandala-visualizer>=1.0.0",
+  "genesisaeon_sonification>=1.0.0",
+  "climate-dashboard>=1.0.0",
+  "implosive-genesis>=1.0.0",
+  "entropy-table>=2.0.0",
 ]
 gui = [
   "dash>=2.16.0",
@@ -112,6 +112,8 @@ include = [
   "pyproject.toml",
   "README.md",
   "LICENSE",
+  "LICENSE-CODE",
+  "LICENSE-DOCS",
   ".zenodo.json",
 ]
 
