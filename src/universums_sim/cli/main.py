@@ -31,6 +31,13 @@ from rich.table import Table
 from universums_sim import __version__
 from universums_sim.simulation.core import SimulationConfig, UniverseSimulator
 
+# Windows consoles default to a non-UTF-8 codepage, which breaks any math/
+# Greek symbols in this CLI's output with UnicodeEncodeError. Force UTF-8
+# stdout/stderr so behavior matches Linux/macOS terminals.
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+
 app = typer.Typer(
     name="universums-sim",
     help="Cosmic emergence simulation for GenesisAeon.",
@@ -235,7 +242,7 @@ def info() -> None:
     from universums_sim import __doi__, __license__
 
     console.rule("[bold cyan]universums-sim[/bold cyan]")
-    console.print(f"  Version   : [green]{__version__}[/green]")
+    console.print(f"  Version   : [green]{__version__}[/green]", highlight=False)
     console.print(f"  License   : {__license__}")
     console.print(f"  DOI       : https://doi.org/{__doi__}")
     console.print()

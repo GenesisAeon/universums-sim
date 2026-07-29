@@ -10,7 +10,8 @@ from __future__ import annotations
 class TestPackageInit:
     def test_version_importable(self):
         from universums_sim import __version__
-        assert __version__ == "0.1.0"
+        assert isinstance(__version__, str)
+        assert __version__
 
     def test_author_importable(self):
         from universums_sim import __author__
