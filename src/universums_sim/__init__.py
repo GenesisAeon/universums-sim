@@ -1,5 +1,5 @@
 """
-universums-sim v0.1.0 — Complete cosmic emergence simulation for GenesisAeon.
+universums-sim — Complete cosmic emergence simulation for GenesisAeon.
 
 Provides:
 - UniverseSimulator: full N-body + field-theory simulation engine
@@ -11,7 +11,15 @@ Provides:
 
 from __future__ import annotations
 
-__version__ = "0.1.0"
+from importlib.metadata import PackageNotFoundError
+from importlib.metadata import version as _version
+
+try:
+    __version__ = _version("universums-sim")
+except PackageNotFoundError:
+    # Not installed, e.g. running from source.
+    __version__ = "0.0.0+unknown"
+
 __author__ = "GenesisAeon"
 __license__ = "MIT"
 __email__ = "genesis@universums-sim.dev"

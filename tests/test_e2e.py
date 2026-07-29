@@ -25,7 +25,8 @@ from universums_sim.simulation.lagrangian import CollapseState
 
 class TestPackageMetadata:
     def test_version_string(self):
-        assert __version__ == "0.1.0"
+        assert isinstance(__version__, str)
+        assert __version__
 
     def test_version_format(self):
         parts = __version__.split(".")
@@ -44,7 +45,8 @@ class TestPackageMetadata:
     def test_py_typed_marker(self):
         # Just check that the module is importable with type annotations
         import universums_sim
-        assert universums_sim.__version__ == "0.1.0"
+        assert isinstance(universums_sim.__version__, str)
+        assert universums_sim.__version__
 
 
 # ---------------------------------------------------------------------------
