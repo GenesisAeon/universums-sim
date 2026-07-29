@@ -18,6 +18,7 @@ Examples
 
 from __future__ import annotations
 
+import io
 import json
 import sys
 from enum import StrEnum
@@ -34,8 +35,9 @@ from universums_sim.simulation.core import SimulationConfig, UniverseSimulator
 # Windows consoles default to a non-UTF-8 codepage, which breaks any math/
 # Greek symbols in this CLI's output with UnicodeEncodeError. Force UTF-8
 # stdout/stderr so behavior matches Linux/macOS terminals.
-if hasattr(sys.stdout, "reconfigure"):
+if isinstance(sys.stdout, io.TextIOWrapper):
     sys.stdout.reconfigure(encoding="utf-8")
+if isinstance(sys.stderr, io.TextIOWrapper):
     sys.stderr.reconfigure(encoding="utf-8")
 
 app = typer.Typer(
