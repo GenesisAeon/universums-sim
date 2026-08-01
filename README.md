@@ -7,7 +7,7 @@
 <p align="center">
   <a href="https://pypi.org/project/universums-sim/"><img src="https://img.shields.io/pypi/v/universums-sim.svg" alt="PyPI"></a>
   <a href="https://pypi.org/project/universums-sim/"><img src="https://img.shields.io/pypi/pyversions/universums-sim.svg" alt="Python"></a>
-  <a href="https://doi.org/10.5281/zenodo.19161241"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.19161241.svg" alt="DOI"></a>
+  <a href="https://doi.org/10.5281/zenodo.21013325"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.21013325.svg" alt="DOI"></a>
   <a href="LICENSE-CODE"><img src="https://img.shields.io/badge/Code-GPLv3--or--later-blue.svg" alt="Code License"></a>
   <a href="LICENSE-DOCS"><img src="https://img.shields.io/badge/Docs-CC%20BY%204.0-lightgrey.svg" alt="Docs License"></a>
   <a href="https://github.com/GenesisAeon/universums-sim/actions"><img src="https://github.com/GenesisAeon/universums-sim/workflows/CI/badge.svg" alt="CI"></a>
@@ -213,8 +213,8 @@ mkdocs serve
   year         = 2024,
   publisher    = {Zenodo},
   version      = {0.1.0},
-  doi          = {10.5281/zenodo.19161241},
-  url          = {https://doi.org/10.5281/zenodo.19161241}
+  doi          = {10.5281/zenodo.21013325},
+  url          = {https://doi.org/10.5281/zenodo.21013325}
 }
 ```
 

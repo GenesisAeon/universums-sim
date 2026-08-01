@@ -99,7 +99,7 @@ Homepage = "https://github.com/GenesisAeon/universums-sim"
 Documentation = "https://genesisaeon.github.io/universums-sim"
 Repository = "https://github.com/GenesisAeon/universums-sim"
 "Bug Tracker" = "https://github.com/GenesisAeon/universums-sim/issues"
-Zenodo = "https://doi.org/10.5281/zenodo.PLACEHOLDER"
+Zenodo = "https://doi.org/10.5281/zenodo.21013325"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/universums_sim"]

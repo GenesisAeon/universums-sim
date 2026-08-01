@@ -23,7 +23,7 @@ except PackageNotFoundError:
 __author__ = "GenesisAeon"
 __license__ = "MIT"
 __email__ = "genesis@universums-sim.dev"
-__doi__ = "10.5281/zenodo.PLACEHOLDER"
+__doi__ = "10.5281/zenodo.21013325"
 
 from universums_sim.simulation.core import CosmicMoment, UniverseSimulator
 from universums_sim.simulation.lagrangian import CollapseState, UnifiedLagrangian
