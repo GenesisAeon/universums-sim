@@ -1,5 +1,7 @@
 # universums-sim
 
+**GenesisAeon Package P65** (formerly informally "P-COSMIC-SIM")
+
 <p align="center">
   <img src="docs/assets/unified-mandala.svg" alt="Unified Mandala Logo" width="200"/>
 </p>
